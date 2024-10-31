@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.get('/', (req, res) => {
+app.get('/:msg', (req, res) => {
   console.log(req.params('msg'))
   res.status(200).json({ message: 'hello' });
 });
