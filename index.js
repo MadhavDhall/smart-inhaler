@@ -9,7 +9,9 @@ app.get('/:msg', (req, res) => {
 
 //post request
 app.post('/upload', (req, res) => {
-  res.status(200).json(req.body);
+  console.log({ body: req.body });
+
+  res.status(201).json(req.body);
 });
 
 app.listen(port, () => {
