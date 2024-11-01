@@ -7,6 +7,11 @@ app.get('/:msg', (req, res) => {
   res.status(200).json({ message: 'hello' });
 });
 
+//post request
+app.post('/upload', (req, res) => {
+  res.status(200).json(req.body);
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`, "hehe");
 });
