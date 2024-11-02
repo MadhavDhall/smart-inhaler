@@ -1,0 +1,8 @@
+<script>
+    const c = confirm("<%= msg %>");
+    if (c) {
+        window.location = "<%= redirect %>";
+    } else {
+        window.location = "/";
+    }
+</script>
