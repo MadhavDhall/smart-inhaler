@@ -1,8 +1,23 @@
-<script>
-    const c = confirm("<%= msg %>");
-    if (c) {
-        window.location = "<%= redirect %>";
-    } else {
-        window.location = "/";
-    }
-</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Inhaler</title>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        const c = confirm("<%= msg %>");
+        if (c) {
+            window.location = "<%= redirect %>";
+        } else {
+            window.location = "/";
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
