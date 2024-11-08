@@ -14,6 +14,10 @@ const schema = new mongoose.Schema({
     }]
 });
 
+// const d = new Date(1731058084000)
+// console.log(d.getHours())
+console.log((Date.now()))
+
 const inhaler = mongoose.model("inhaler", schema);
 
 module.exports = inhaler

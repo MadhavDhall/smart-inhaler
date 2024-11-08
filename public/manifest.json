@@ -5,8 +5,15 @@
     "background_color": "#212529",
     "display": "standalone",
     "scope": "/",
-    "start_url": "https://smart-inhaler-try.vercel.app/",
+    "start_url": "/",
     "description": "Smart Inhaler Project",
     "orientation": "any",
-    "offline_enabled": true
+    "offline_enabled": true,
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "type": "image/x-icon",
+            "sizes": "32x32"
+        }
+    ]
 }

@@ -15,33 +15,56 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-//post request
-app.post('/upload', (req, res) => {
-  console.log({ body: req.body });
+// Middleware to parse JSON
+app.use(express.json());
 
-  res.status(201).json({ msg: "Finally done bro :)." });
-});
-
+// Middleware to parse URL-encoded data
+app.use(express.urlencoded({ extended: true }));
 
 // to show user data upon entering inhaler id
 app.get("/user", async (req, res) => {
-  const { inhalerId } = req.query;
-  const inhaler = await db.findOne({ id: inhalerId });
-  if (!inhaler) {
+  try {
+    const { inhalerId } = req.query;
+    const inhaler = await db.findOne({ id: inhalerId });
+    if (!inhaler) {
+      res.render("confirm", { msg: "Invalid Inhaler Id", redirect: "/" });
+    }
+    console.log(inhaler);
+
+    // calculating inhaled how many times inhaled from smart inhaler today
+    let todayInhaled = 0;
+    inhaler.inhaled.forEach((inhaled) => {
+      if (new Date(inhaled.time).toDateString() === new Date().toDateString()) {
+        todayInhaled = todayInhaled + 1;
+      }
+    })
+
+    res.render("user", { data: inhaler.inhaled, name: inhaler.name, id: inhalerId, todayInhaled: todayInhaled });
+  } catch (error) {
     res.render("confirm", { msg: "Invalid Inhaler Id", redirect: "/" });
   }
-  res.render("user", { inhaler: inhaler });
 });
 
 // to post data that user inhaled
 app.post("/inhaled", async (req, res) => {
-  const { inhalerId } = req.body;
-  const inhaler = await db.findOne({ id: inhalerId }).lean();
+  const { id } = req.body;
+  // console.log(req.body);
+
+  const inhaler = await db.findOne({ id: id });
   if (!inhaler) {
-    res.render("confirm", { msg: "Invalid Inhaler Id", redirect: "/" });
-    return;
+    return res.json({ msg: "Invalid Inhaler Id" });
   }
-  res.render("user", { data: inhaler });
+  // res.render("user", { data: inhaler });
+
+  const result = await db.updateOne(
+    { id: id },
+    { $push: { inhaled: { time: Date.now() } } },
+    { new: true } // Return the updated document
+  );
+
+  const user = await db.findOne({ id: id });
+  console.log(user);
+  return res.json(result);
 });
 
 app.listen(port, () => {

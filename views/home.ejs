@@ -13,6 +13,8 @@
 
     <title>Smart Inhaler</title>
     <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel=“shortcut icon” href=“/favicon.ico” type=“image/x-icon”>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -27,7 +29,9 @@
     <!-- navbar starts here -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="/">Smart Inhaler</a>
+            <a class="navbar-brand" href="/">
+                <img src="/images/logo.png" alt="Logo" class="img-fluid" width="50px">
+                Smart Inhaler</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,10 +39,10 @@
             <div class="collapse navbar-collapse text-center" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#team">Our Team</a>
@@ -58,21 +62,103 @@
         </div>
     </form>
     <hr>
+
+    <!-- about inhaler section starts  -->
+    <main class="container my-5" id="about">
+        <h2>About Smart Inhaler</h2><br>
+        <p>The objective of the project is to develop a smart inhaler
+            prototype based on advanced sensor technology and
+            connectivity features, such as an ESP8266 Wi-Fi module, a Hall
+            Effect sensor, an OLED screen, and a magnet.</p>
+
+        <p>
+            <b>Functionality</b>: The inhaler continuously tracks the patient's
+            breathing pattern and medication use. Actuation is registered
+            using the Hall Effect sensor, while the ESP8266 streams data
+            in real time, allowing immediate feedback for patients and
+            healthcare providers.
+        </p>
+        <p>
+            <b> User Empowerment</b>: Usage statistics and medication
+            reminders on the OLED help patients manage their lung
+            health and improve treatment outcomes.
+        </p>
+
+        <p>
+            The inhaler is equipped with a Hall Effect sensor to detect each use.
+            Additional sensors may measure usage patterns, environmental conditions, and
+            medication levels.
+            <b>ESP8266 Wi-Fi Module</b> Enables wireless data transmission, ensuring that collected
+            data is accessible to both patients and healthcare providers. The Hall Effect sensor logs each inhaler
+            actuation, and other sensors
+            gather relevant health metrics, providing a detailed view of the patient's medication
+            use. The ESP8266 Wi-Fi module transmits data in real-time, allowing
+            healthcare providers to access current information on patient adherence and
+            respiratory health. A user-friendly web interface allows healthcare providers to view patient
+            data, monitor adherence trends, and receive alerts for any irregular usage patterns. An OLED screen on the
+            inhaler displays usage information,
+            medication reminders, and motivational messages, helping patients manage their
+            health effectively. The prototype smart inhaler will undergo rigorous testing to
+            validate sensor accuracy, data transmission, and overall functionality. Feedback from
+            patients and healthcare providers will inform further improvements.
+        </p>
+    </main>
+    <!-- about inhaler section ends  -->
+
+    <hr>
     <!-- our team starts  -->
     <section class="mb-5" id="team">
-        <div class="container">
-            <h2 class="text-center my-5">Our Team</h2>
-            <div class="flex flex-wrap justify-content-around">
-                <div class="card text-center" style="width: 18rem;">
-                    <img src="/images/madhavDhall.jpeg" class="card-img-top" alt="Madhav Dhall Photo">
-                    <div class="card-body">
-                        <h4>Madhav Dhall</h4>
-                        <p class="card-text">B.Tech.(Biosciences and Bioengineering) 1st year</p>
-                        <p class="card-text">Ludhiana, Punjab</p>
-                        <a href="mailto:madhav_d@bt.iitr.ac.in">madhav_d@bt.iitr.ac.in</a>
-                    </div>
+        <h2 class="text-center my-5">Our Team</h2>
+        <div class="container d-flex flex-wrap justify-content-around
+        flex flex-wrap justify-content-around">
+            <!-- madhav dhall(leader) card  -->
+            <div class="card text-center my-2" style="width: 18rem;">
+                <img src="/images/madhavDhall.jpeg" class="card-img-top" alt="Madhav Dhall Photo">
+                <div class="card-body">
+                    <h4>Madhav Dhall</h4>
+                    <p class="card-text">B.Tech.(Biosciences and Bioengineering) 1st year</p>
+                    <p class="card-text">Ludhiana, Punjab</p>
+                    <a href="mailto:madhav_d@bt.iitr.ac.in">madhav_d@bt.iitr.ac.in</a>
                 </div>
             </div>
+            <!-- madhav dhall(leader) card ends  -->
+
+
+            <!-- aditya bansal card  -->
+            <div class="card text-center my-2" style="width: 18rem;">
+                <img src="/images/AdityaBansal.jpeg" class="card-img-top" alt="Madhav Dhall Photo">
+                <div class="card-body">
+                    <h4>Aditya Bansal</h4>
+                    <p class="card-text">BSMS (Integrated Masters in Physics) 1st Year</p>
+                    <p class="card-text">Hyderabad, Telangana</p>
+                    <a href="mailto:aditya_b@ph.iitr.ac.in">aditya_b@ph.iitr.ac.in</a>
+                </div>
+            </div>
+            <!-- aditya bansal card ends  -->
+
+            <!-- dhruv card  -->
+            <div class="card text-center my-2" style="width: 18rem;">
+                <img src="/images/dhruv.jpeg" class="card-img-top" alt="Madhav Dhall Photo">
+                <div class="card-body">
+                    <h4>Dhruv</h4>
+                    <p class="card-text">B.Tech.(Biosciences and Bioengineering) 1st year</p>
+                    <p class="card-text">Rohini, Delhi</p>
+                    <a href="mailto:dhruv_k@bt.iitr.ac.in">dhruv_k@bt.iitr.ac.in</a>
+                </div>
+            </div>
+            <!-- dhruv card ends  -->
+
+            <!-- aryan gupta card  -->
+            <div class="card text-center my-2" style="width: 18rem;">
+                <img src="/images/aryanGupta.jpeg" class="card-img-top" alt="Madhav Dhall Photo">
+                <div class="card-body">
+                    <h4>Aryan Gupta</h4>
+                    <p class="card-text">B.Tech.(Metallurgical and Materials Engineering) 1st year</p>
+                    <p class="card-text">Bengaluru, Karnataka</p>
+                    <a href="mailto:aryan_g2@mt.iitr.ac.in">aryan_g2@mt.iitr.ac.in</a>
+                </div>
+            </div>
+            <!-- aryan gupta card ends  -->
         </div>
     </section>
     <!-- our team ends  -->
