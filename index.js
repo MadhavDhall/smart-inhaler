@@ -34,7 +34,13 @@ app.get("/user", async (req, res) => {
     // calculating inhaled how many times inhaled from smart inhaler today
     let todayInhaled = 0;
     inhaler.inhaled.forEach((inhaled) => {
-      if (new Date(inhaled.time).toDateString() === new Date().toDateString()) {
+      if (new Date(inhaled.time).toLocaleDateString("en-IN", {
+        timeZone: "Asia/Kolkata"
+        , year: "numeric", month: "long", day: "numeric"
+      }) === new Date().toLocaleDateString("en-IN", {
+        timeZone: "Asia/Kolkata"
+        , year: "numeric", month: "long", day: "numeric"
+      })) {
         todayInhaled = todayInhaled + 1;
       }
     })
