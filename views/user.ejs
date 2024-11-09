@@ -72,16 +72,17 @@
 
             <tbody>
                 <!-- print data here -->
-                <% data.forEach(function(inhaled, index){ %>
+                <% data.slice().reverse().forEach(function(inhaled, index){ %>
                     <tr>
                         <td>
                             <%= index + 1 %>
                         </td>
                         <td>
-                            <%= (new Date(inhaled.time)).toDateString() %>
+                            <%= (new Date(inhaled.time)).toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata"
+                                ,year: "numeric" , month: "long" , day: "numeric" }) %>
                         </td>
                         <td>
-                            <%= (new Date(inhaled.time)).toTimeString() %>
+                            <%= (new Date(inhaled.time)).toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" }) %>
                         </td>
                     </tr>
                     <% }); %>
